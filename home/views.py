@@ -4,11 +4,25 @@ from django.shortcuts import render
 
 # Create your views here.
 from home.models import Setting, ContactFormMessage, ContactForm
+from product.models import Product, Category
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page': 'home'}
+    sliderdata = Product.objects.all()[:4]
+    category = Category.objects.all()
+    products2 = Product.objects.all()[:4]
+    dayproduct = Product.objects.all()[:4]
+    lastproducts = Product.objects.all().order_by('-id')[:4]
+
+    context = {'setting': setting,
+               'category': category,
+               'page': 'home',
+               'sliderdata': sliderdata,
+               'products2': products2,
+               'lastproducts': lastproducts,
+               'dayproduct': dayproduct
+               }
     return render(request, 'index.html', context)
 
 def hakkimizda(request):
@@ -39,3 +53,13 @@ def iletisim(request):
     form = ContactForm()
     context = {'setting': setting, 'form': form}
     return render(request, 'iletisim.html', context)
+
+def category_products(request,id,slug):
+    category =Category.objects.all()
+    categorydata = Category.objects.get(pk=id)
+    products = Product.objects.filter(category_id=id)
+    context = {'products': products,
+               'category': category,
+               'categorydata': categorydata
+               }
+    return render(request, 'products.html', context)

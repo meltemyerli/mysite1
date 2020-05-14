@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{% load static %}
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="description" content="{% block description %} Anasayfa kısa açıklama {% endblock %}">
     <meta name="keywords" content="{% block keywords %} Anasayfa anahtar kelimeler {% endblock %}">
@@ -22,15 +22,22 @@
     <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css'%}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/rate.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/search.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+    <!-- jQuery UI !-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
 
     {% block head %} {% endblock %}
 </head>
 <body>
 {% include 'header.html' %}
 {% block body %}
-{% block slider %}{% include 'slider.html' %}{% endblock %}
-{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
-{% block content %}{% include 'content.html' %}{% endblock %}
+    {% block slider %}{% include 'slider.html' %}{% endblock %}
+    {% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+    {% block content %}{% include 'content.html' %}{% endblock %}
 {% endblock %}
 {% include 'footer.html' %}
 </body>

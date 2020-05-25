@@ -36,7 +36,16 @@
                 </div>
             </div>
             <div class="ht-right">
-                <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                {% if user.id is not None %}
+                    <a href="/logout" class="login-panel"><i></i>LOGOUT</a>
+                    <a href="/user" class="login-panel"><img src="{{ user.userprofile.image.url }}" style=height:25px>&nbsp&nbsp{{ user.first_name }}&nbsp&nbsp&nbsp</a>
+
+                {% else %}
+                    <a href="/login" class="login-panel"><i class="fa fa-user"></i>Giriş Yap</a>
+                    <a href="/signup" class="login-panel"><i class="fa fa-user"></i>Kayıt Ol&nbsp&nbsp&nbsp</a>
+
+                {% endif %}
+
                 <div class="lan-selector">
                     <select class="language_drop" name="countries" id="countries" style="width:300px;">
                         <option value='yt' data-image="{% static 'img/flag-1.jpg'%}" data-imagecss="flag yt"
@@ -98,52 +107,12 @@
                             </a>
                         </li>
                         <li class="cart-icon">
-                            <a href="#">
+                            <a href="/shopcart/">
                                 <i class="icon_bag_alt"></i>
-                                <span>3</span>
+                                <span>{{ request.session.cart_items }}</span>
                             </a>
-                            <div class="cart-hover">
-                                <div class="select-items">
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td class="si-pic"><img src="{% static 'img/select-product-1.jpg'%}" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="si-pic"><img src="{% static 'img/select-product-2.jpg'%}" alt=""></td>
-                                            <td class="si-text">
-                                                <div class="product-selected">
-                                                    <p>$60.00 x 1</p>
-                                                    <h6>Kabino Bedside Table</h6>
-                                                </div>
-                                            </td>
-                                            <td class="si-close">
-                                                <i class="ti-close"></i>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="select-total">
-                                    <span>total:</span>
-                                    <h5>$120.00</h5>
-                                </div>
-                                <div class="select-button">
-                                    <a href="#" class="primary-btn view-card">VIEW CARD</a>
-                                    <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
-                                </div>
-                            </div>
                         </li>
-                        <li class="cart-price">$150.00</li>
+                        <li class="cart-price">${{ rs.total }}</li>
                     </ul>
                 </div>
             </div>
@@ -160,7 +129,14 @@
                         <ul>
                             {% recursetree category %}
                                 <li>
-                                    <a href="/category/"> {{ node.title }}</a>
+                                    <div class="col-sm-3 col-md-12">
+                                        <a href="/category/"> {{ node.title }}</a>
+                                        {% if not node.is_leaf_node %}
+                                            <ul class="children">
+                                                {{ children }}
+                                            </ul>
+                                        {% endif %}
+                                    </div>
                                 </li>
                             {% endrecursetree %}
                         </ul>

@@ -1,0 +1,54 @@
+{% extends "homebase.html" %}
+
+{% block title %}Giriş Yap{{ setting.company }}{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'>
+{% endblock %}
+
+{% block body %}
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i>Anasayfa</a>
+                        <span>Giriş Yap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="login-form">
+                        <h2>Giriş Yap</h2>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <form action="" method="post" class="comment-form">
+                            {% csrf_token %}
+                            <div class="group-input">
+                                <input type="text" id="username" name="username" placeholder="Kullanıcı İsmi">
+                            </div>
+                            <div class="group-input">
+                                <input type="password" id="pass"  name="password" placeholder="Şifre">
+                            </div>
+                            <input type="submit" class="site-btn login-btn" value="GİRİŞ YAP">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "homebase.html" %}
+
+{% block title %}{{ profile.user_name }} Profil{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'>
+{% endblock %}
+
+{% block body %}
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i>Anasayfa</a>
+                        <span>Kullanıcı Profili</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="contact-form">
+                        <div class="leave-comment">
+                            {% include "user_panel.html" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h4><b>Kullanıcı Bilgileri</b></h4>
+                    <hr>
+                    <div>
+                        <a href="/user/update/" class="primary-btn">PROFİL GÜNCELLE</a>
+                        <a href="/user/password/" class="primary-btn">ŞİFRE DEĞİŞTİR</a>
+
+                    </div>
+                    <div class="specification-table">
+                        <table>
+                            <tr>
+                                <td class="p-catagory"></td>
+                                <td>
+                                    <div class="p-stock"><img src="{{ profile.image.url }}" style="height: 200px"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-catagory">Ad Soyad</td>
+                                <td>
+                                    <div class="p-0">{{profile.user.first_name}} {{profile.user.last_name}}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-catagory">E-mail</td>
+                                <td>
+                                    <div class="p-0">{{profile.user.email}}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-catagory">Tel No</td>
+                                <td>
+                                    <div class="p-0">{{profile.phone}}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-catagory">Adres</td>
+                                <td>
+                                    <div class="p-0">{{profile.address}}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-catagory">İl</td>
+                                <td>
+                                    <div class="p-0">{{profile.city}}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-catagory">Ülke</td>
+                                <td>
+                                    <div class="p-0">{{profile.country}}</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

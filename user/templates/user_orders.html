@@ -1,0 +1,85 @@
+{% extends "homebase.html" %}
+
+{% block title %}{{ profile.user_name }} Sipariş Listesi{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'>
+{% endblock %}
+
+{% block body %}
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i>Anasayfa</a>
+                        <span>Kullanıcı Siparişleri</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="contact-form">
+                        <div class="leave-comment">
+                            {% include "user_panel.html" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h4><b>Siparişlerim</b></h4>
+                    <hr>
+                    <div class="specification-table">
+                        <table>
+                            <tr>
+                                <td class="p-catagory">Id</td>
+                                <td class="p-catagory">Ad</td>
+                                <td class="p-catagory">Soyad</td>
+                                <td class="p-catagory">Toplam</td>
+                                <td class="p-catagory">Status</td>
+                                <td class="p-catagory">Tarih</td>
+                                <td class="p-catagory">Detay</td>
+
+
+                            </tr>
+                            {% for rs in orders %}
+                                <tr>
+                                    <td><div class="p-0">{{ rs.id }}</div></td>
+                                    <td><div class="p-0">{{ rs.first_name }}</div></td>
+                                    <td><div class="p-0">{{ rs.last_name }}</div></td>
+                                    <td><div class="p-0">{{ rs.total }}</div></td>
+                                    <td><div class="p-0">{{ rs.status }}</div></td>
+                                    <td><div class="p-0">{{ rs.create_at }}</div></td>
+                                    <td><div class="p-0"><a href="/user/orderdetail/{{ rs.id }}" class="primary-btn">Detay</a> </div></td>
+
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

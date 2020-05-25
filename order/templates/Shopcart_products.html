@@ -1,0 +1,99 @@
+{% extends "homebase.html" %}
+
+{% block title %}Ürün Arama Sonuçları{% endblock %}
+{% block keywords %}{{ categorydata.keywords }}{% endblock %}
+{% block description %}{{ categorydata.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'>
+{% endblock %}
+
+
+{% block body %}
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i>Anasayfa</a>
+                        <span>Sepetim</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cart-table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th class="p-name">Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th><i class="ti-close"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for rs in shopcart %}
+                                <tr>
+                                    <td class="cart-pic first-row"><img src="{{ rs.product.image.url }}" style="height: 50px" alt=""></td>
+                                    <td class="cart-title first-row">
+                                        <h5>{{ rs.product.title }}</h5>
+                                    </td>
+                                    <td class="p-price first-row">${{ rs.product.price }}</td>
+                                    <td class="qua-col first-row">{{ rs.quantity }}</td>
+                                    <td class="total-price first-row">{{ rs.amount }}</td>
+                                    <td class="close-td first-row"><a href="/order/deletefromcart/{{ rs.id }}" onclick="return confirm('Silinecek! Emin misiniz?')" ><i class="ti-close"></i></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="cart-buttons">
+                                <a href="/" class="primary-btn continue-shop">Continue shopping</a>
+                                <a href="#" class="primary-btn up-cart">Update cart</a>
+                            </div>
+                            <div class="discount-coupon">
+                                <h6>Discount Codes</h6>
+                                <form action="#" class="coupon-form">
+                                    <input type="text" placeholder="Enter your codes">
+                                    <button type="submit" class="site-btn coupon-btn">Apply</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-4">
+                            <div class="proceed-checkout">
+                                <ul>
+                                    <li class="cart-total">Total <span>${{ total }}</span></li>
+                                </ul>
+                                <a href="/order/orderproduct" class="proceed-btn">SİPARİŞ VER</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

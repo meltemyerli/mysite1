@@ -673,7 +673,7 @@ ol {
 	opacity: 1;
 	visibility: visible;
 	z-index: 99;
-}
+ }
 
 .nav-item .nav-depart .depart-btn:before {
 	position: absolute;
@@ -716,7 +716,6 @@ ol {
 .nav-item .nav-depart .depart-btn .depart-hover li {
 	list-style: none;
 }
-
 .nav-item .nav-depart .depart-btn .depart-hover li.active a {
 	color: #e7ab3c;
 }

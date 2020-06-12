@@ -1,9 +1,10 @@
+from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput, Select, FileInput
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
@@ -45,6 +46,7 @@ class Product(models.Model):
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     keywords = models.CharField(blank=True, max_length=255)
@@ -68,6 +70,25 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'slug': self.slug})
 
+
+class ProductForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = ['category', 'title', 'slug', 'keywords', 'description', 'price', 'amount', 'image', 'detail']
+        widgets = {
+            'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
+            'keywords': TextInput(attrs={'class': 'input', 'placeholder': 'keywords'}),
+            'description': TextInput(attrs={'class': 'input', 'placeholder': 'description'}),
+            'category': Select(attrs={'class': 'input', 'placeholder': 'type'}, choices=(
+                Category.objects.all()
+            )),
+            'image': FileInput(attrs={'class': 'input', 'placeholder': 'image'}),
+            'slug': TextInput(attrs={'class': 'input', 'placeholder': 'slug'}),
+            'detail': CKEditorWidget(),
+            'price': TextInput(attrs={'class': 'input', 'placeholder': 'price'}),
+            'amount': TextInput(attrs={'class': 'input', 'placeholder': 'amount'}),
+        }
+
 class Images(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True)
@@ -79,6 +100,12 @@ class Images(models.Model):
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
     image_tag.short_description = 'Image'
+
+
+class ImagesForm(ModelForm):
+    class Meta:
+        model = Images
+        fields = ['title', 'image']
 
 
 class Comment(models.Model):

@@ -46,11 +46,8 @@
                 <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="product-pic-zoom">
-                                <img class="product-big-img" src="{{ product.image.url }}" style="height: 550px" alt="">
-                                <div class="zoom-icon">
-                                    <i class="fa fa-search-plus"></i>
-                                </div>
+                            <div>
+                                <img src="{{ product.image.url }}" style="height: 550px" alt="">
                             </div>
                             <div class="product-thumbs">
                                 <div class="product-thumbs-track ps-slider owl-carousel">
@@ -66,16 +63,8 @@
                                 <div class="pd-title">
                                     <span>{{product.category.title}}</span>
                                     <h3>{{ product.title }}</h3>
-                                    <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
-                                <div class="pd-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>(5)</span>
-                                </div>
+
                                 <div class="pd-desc">
                                     <p>{{product.description}}</p>
                                     <h4>${{ product.price }} <span>${{ product.price }}</span></h4>
@@ -84,7 +73,7 @@
                                     <form action="/order/addtocart/{{ product.id }}" method="post">
                                         {% csrf_token %}
                                         <input name="quantity" type="number" class="pro-qty" min="0" max="{{ product.amount }}" value="1">
-                                        <button type="submit" class="primary-btn pd-cart" style="height: 45px" >Sepete Ekle </button>
+                                        <button type="submit" class="primary-btn" style="height: 45px">Sepete Ekle </button>
                                     </form>
                                 </div>
                                 <ul class="pd-tags">

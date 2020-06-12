@@ -33,6 +33,7 @@
     {% block head %} {% endblock %}
 </head>
 <body>
+{% block other %}
 {% include 'header.html' %}
 {% block body %}
     {% block slider %}{% include 'slider.html' %}{% endblock %}
@@ -40,5 +41,6 @@
     {% block content %}{% include 'content.html' %}{% endblock %}
 {% endblock %}
 {% include 'footer.html' %}
+{% endblock %}
 </body>
 </html>

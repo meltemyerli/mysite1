@@ -16,11 +16,19 @@
                     <div class="breadcrumb-text">
                         <a href="#"><i class="fa fa-home"></i>Anasayfa</a>
                         <span>İletişim</span>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{message.tags}}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <section class="contact-section spad">
         <div class="container">
             <div class="row">
@@ -28,13 +36,6 @@
                     <div class="contact-form">
                         <div class="leave-comment">
                             <h4>İletişim Formu</h4>
-                            {% if messages %}
-                                {% for message in messages %}
-                                    <div class="alert alert-{{message.tags}}" role="alert">
-                                        {{ message }}
-                                    </div>
-                                {% endfor %}
-                            {% endif %}
 
                             <form action="" method="post" class="comment-form">
                                 {% csrf_token %}

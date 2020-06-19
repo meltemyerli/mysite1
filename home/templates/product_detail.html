@@ -47,16 +47,16 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="product-pic-zoom">
-                                <img class="product-big-img" src="{{ product.image.url }}" style="height: 550px" alt="">
+                                <img class="product-big-img" src="{{ product.image.url }}" style="height: 500px" alt="">
                                 <div class="zoom-icon">
                                     <i class="fa fa-search-plus"></i>
                                 </div>
                             </div>
                             <div class="product-thumbs">
                                 <div class="product-thumbs-track ps-slider owl-carousel">
+                                 <div class="pt active" data-imgbigurl="{{product.image.url}}"><img src="{{product.image.url}}" alt=""></div>
                                     {% for rs in images%}
-                                        <div class="pt active" data-imgbigurl="img/product-single/product-1.jpg"><img
-                                                src="{{rs.image.url}}" style="height: 150px" alt=""></div>
+                                        <div class="pt" data-imgbigurl="{{rs.image.url}}"><img src="{{rs.image.url}}" alt=""></div>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -64,41 +64,23 @@
                         <div class="col-lg-6">
                             <div class="product-details">
                                 <div class="pd-title">
-                                    <span>{{product.category.title}}</span>
                                     <h3>{{ product.title }}</h3>
-                                    <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
-                                <div class="pd-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>(5)</span>
-                                </div>
+
                                 <div class="pd-desc">
                                     <p>{{product.description}}</p>
-                                    <h4>${{ product.price }} <span>${{ product.price }}</span></h4>
+                                    <h4>₺{{ product.price }} <span>₺{{ product.price }}</span></h4>
                                 </div>
                                 <div class="quantity">
                                     <form action="/order/addtocart/{{ product.id }}" method="post">
                                         {% csrf_token %}
                                         <input name="quantity" type="number" class="pro-qty" min="0" max="{{ product.amount }}" value="1">
-                                        <button type="submit" class="primary-btn pd-cart" style="height: 45px" >Sepete Ekle </button>
+                                        <button type="submit" class="primary-btn" style="height: 45px">Sepete Ekle </button>
                                     </form>
                                 </div>
                                 <ul class="pd-tags">
-                                    <li><span>CATEGORIES</span>: More Accessories, Wallets & Cases</li>
-                                    <li><span>TAGS</span>: Clothing, T-shirt, Woman</li>
+                                    <li><span>KATEGORİ</span>: {{product.category.title}}</li>
                                 </ul>
-                                <div class="pd-share">
-                                    <div class="p-code">Sku : 00012</div>
-                                    <div class="pd-social">
-                                        <a href="#"><i class="ti-facebook"></i></a>
-                                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                                        <a href="#"><i class="ti-linkedin"></i></a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,6 +173,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
 {% endblock %}

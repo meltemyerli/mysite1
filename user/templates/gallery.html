@@ -1,0 +1,47 @@
+{% extends "homebase.html" %}
+
+{% block other %}
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div>
+                        <br>
+                        <h3><b>RESİM GALERİSİ</b></h3>
+                        <br>
+                        <div class="row">
+                            <form action="/product/addgallery/{{ id }}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    {{ form.as_p }}
+                                </fieldset>
+                                <div class="form-group">
+                                    <button class="primary-btn" type="submit">RESİM EKLE</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <table style="width:100%; margin-bottom: 30px">
+                    <tr>
+                        <th style="background-color: lightgrey ">Title</th>
+                        <th style="background-color: lightgrey">Image</th>
+                        <th style="background-color: lightgrey">Actions</th>
+                    </tr>
+                    {% for rs in images %}
+                        <tr>
+                            <td>
+                                {{ rs.title }}
+                            </td>
+                            <td>
+                                <img src="{{ rs.image.url }}" style="height: 100px; width: auto">
+                            </td>
+                            <td><a class="btn btn-danger" href="/product/deletegallery/{{ rs.id }}"
+                                   onclick="return confirm('Silinecek! Emin misiniz?')">SİL</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

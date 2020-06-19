@@ -3,9 +3,7 @@
 <div id="preloder">
     <div class="loader"></div>
 </div>
-
 <script>
-
     $(function() {
         $("#search2").autocomplete({
             source: "/search_auto/",
@@ -15,12 +13,10 @@
             minLength: 2,
         });
     });
-
     function AutoCompleteSelectHandler(event, ui)
     {
         var selectedObj = ui.item;
     }
-
 </script>
 <header class="header-section">
     <div class="header-top">
@@ -28,11 +24,11 @@
             <div class="ht-left">
                 <div class="mail-service">
                     <i class=" fa fa-envelope"></i>
-                    hello.colorlib@gmail.com
+                    my@gmail.com
                 </div>
                 <div class="phone-service">
                     <i class=" fa fa-phone"></i>
-                    +65 11.188.888
+                    +224 154 1263
                 </div>
             </div>
             <div class="ht-right">
@@ -45,21 +41,6 @@
                     <a href="/signup" class="login-panel"><i class="fa fa-user"></i>Kayıt Ol&nbsp&nbsp&nbsp</a>
 
                 {% endif %}
-
-                <div class="lan-selector">
-                    <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                        <option value='yt' data-image="{% static 'img/flag-1.jpg'%}" data-imagecss="flag yt"
-                                data-title="English">English</option>
-                        <option value='yu' data-image="{% static 'img/flag-2.jpg'%}" data-imagecss="flag yu"
-                                data-title="Bangladesh">German </option>
-                    </select>
-                </div>
-                <div class="top-social">
-                    <a href="#"><i class="ti-facebook"></i></a>
-                    <a href="#"><i class="ti-twitter-alt"></i></a>
-                    <a href="#"><i class="ti-linkedin"></i></a>
-                    <a href="#"><i class="ti-pinterest"></i></a>
-                </div>
             </div>
         </div>
     </div>
@@ -69,8 +50,11 @@
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
                         <a href="/">
-                            <img src="{% static 'img/logo.png'%}" alt="">
+                            <img src="{% static 'img/sample-icon.png'%}" style="height: 45px;" alt="">
                         </a>
+                    </div>
+                    <div>
+                        <a href="/"> <h4><b>&nbsp&nbsp&nbsp&nbspMY</b></h4></a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-7">
@@ -93,84 +77,57 @@
                             </select>
                             <div class="input-group">
                                 <input id="search2" name="search2" type="text" placeholder="Arama Yap.." style="margin: 12px">
-                                <button type="submit"><i class="fa fa-search"></i></button>
+                                <button type="submit" style="height: 50px"><i class="fa fa-search"></i></button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-3 text-right col-md-3">
                     <ul class="nav-right">
-                        <li class="heart-icon">
-                            <a href="#">
-                                <i class="icon_heart_alt"></i>
-                                <span>1</span>
-                            </a>
-                        </li>
                         <li class="cart-icon">
                             <a href="/shopcart/">
                                 <i class="icon_bag_alt"></i>
                                 <span>{{ request.session.cart_items }}</span>
                             </a>
                         </li>
-                        <li class="cart-price">${{ rs.total }}</li>
+                        <li class="cart-price"></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <div class="nav-item">
-        <div class="container">
-            <div class="nav-depart">
-                <div class="depart-btn">
-                    <i class="ti-menu"></i>
-                    <span>Tüm Kategoriler</span>
-                    <ul class="depart-hover">
-                        {% load mptt_tags %}
-                        <ul>
-                            {% recursetree category %}
+    <div class="header-top">
+        <div class="container-fluid megamenusip">
+            <ul class="exo-menu">
+                <li class="drop-down"><a href="#"><i class="fa fa-list"></i> Tüm Kategoriler </a>
+                    <!--Drop Down-->
+                    <ul class="drop-down-ul animated fadeIn">
+                        {% recursetree category %}
+                            {% if node.is_leaf_node %}
                                 <li>
-                                    <div class="col-sm-3 col-md-12">
-                                        <a href="/category/"> {{ node.title }}</a>
-                                        {% if not node.is_leaf_node %}
-                                            <ul class="children">
-                                                {{ children }}
-                                            </ul>
-                                        {% endif %}
-                                    </div>
+                                    <a href="/category/{{ node.id }}/{{ node.slug }}">{{ node.title }}</a>
                                 </li>
-                            {% endrecursetree %}
-                        </ul>
+                            {% endif %}
+                            {% if not node.is_leaf_node %}
+                                <li class="flyout-right"><a href="/">{{ node.title }}</a>
+                                    <ul class="animated fadeIn">
+                                        {{ children }}
+                                    </ul>
+                                </li>
+                            {% endif %}
+                        {% endrecursetree %}
                     </ul>
-                </div>
-            </div>
-            <nav class="nav-menu mobile-menu">
-                <ul>
-                    <li><a href="/">Anasayfa</a></li>
-                    <li><a href="#">Ürünler</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Men's</a></li>
-                            <li><a href="#">Women's</a></li>
-                            <li><a href="#">Kid's</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/hakkimizda">HAKKIMIZDA</a></li>
-                    <li><a href="/referanslar">REFERANSLAR</a></li>
-                    <li><a href="/iletisim">İLETİŞİM</a></li>
+                    <!--//End drop down-->
+                </li>
+                <li><a href="/">Anasayfa</a></li>
+                <li><a href="/hakkimizda">HAKKIMIZDA</a></li>
+                <li><a href="/referanslar">REFERANSLAR</a></li>
+                <li><a href="/iletisim">İLETİŞİM</a></li>
+                <li><a href="/sss">SSS</a></li>
 
-
-                    <!--<li><a href="#">Pages</a>
-                        <ul class="dropdown">
-                            <li><a href="./blog-details.html">Blog Details</a></li>
-                            <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                            <li><a href="./check-out.html">Checkout</a></li>
-                            <li><a href="./faq.html">Faq</a></li>
-                            <li><a href="./register.html">Register</a></li>
-                            <li><a href="./login.html">Login</a></li>
-                        </ul>
-                    </li> -->
-                </ul>
-            </nav>
-            <div id="mobile-menu-wrap"></div>
+            </ul>
         </div>
-    </div>
+
+
+
 </header>

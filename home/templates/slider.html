@@ -14,21 +14,24 @@
         </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <section class="hero-section">
     <div class="hero-items owl-carousel">
         {% for rs in sliderdata %}
             <div class="single-hero-items set-bg" data-setbg="{{ rs.image.url }}" style="background-size: 560px">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4" >
+                        <div class="col-md-3" >
                             <h3 class="text-black">{{ rs.title }}</h3>
                             <p class="text-black-50">{{ rs.description }}</p>
                             <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="primary-btn">Satın Al</a>
                         </div>
                     </div>
-                    <!--<div class="off-card">
-                        <h2>Sale <span>50%</span></h2>
-                    </div>-->
                 </div>
             </div>
         {% endfor %}

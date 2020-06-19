@@ -2,35 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01e67496-42b9-4359-aef0-1a41ead85f78" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/templates/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/templates/Order_Completed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/templates/Order_Form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/templates/Shopcart_products.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/change_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_order_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_orders.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/faq.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/add_product.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/gallery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_products.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/product_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/products_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/products_search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite1/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/templates/Order_Form.html" beforeDir="false" afterPath="$PROJECT_DIR$/order/templates/Order_Form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order/templates/Shopcart_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/order/templates/Shopcart_products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
         <item name="SQLite - db.sqlite3" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="order_order: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="product_category: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -85,8 +82,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -112,8 +109,8 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Django\mysite1\user\templates" />
-      <recent name="C:\Django\mysite1\order\templates" />
       <recent name="C:\Django\mysite1\home\templates" />
+      <recent name="C:\Django\mysite1\order\templates" />
       <recent name="C:\Django\mysite1\order" />
       <recent name="C:\Django\mysite1\user\template" />
     </key>
@@ -122,7 +119,7 @@
       <recent name="C:\Django\mysite1\order\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.views">
+  <component name="RunManager" selected="Django server.mysite1">
     <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="mysite1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -168,11 +165,6 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.views" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -237,7 +229,35 @@
       <workItem from="1590066066829" duration="16857000" />
       <workItem from="1590178465641" duration="7600000" />
       <workItem from="1590354288728" duration="1061000" />
-      <workItem from="1590411886996" duration="3295000" />
+      <workItem from="1590411886996" duration="3532000" />
+      <workItem from="1590519925020" duration="1000" />
+      <workItem from="1590616867536" duration="250000" />
+      <workItem from="1590617279510" duration="8172000" />
+      <workItem from="1590666569456" duration="1600000" />
+      <workItem from="1590668934560" duration="2714000" />
+      <workItem from="1590672317589" duration="205000" />
+      <workItem from="1590681374873" duration="2247000" />
+      <workItem from="1590683903975" duration="3461000" />
+      <workItem from="1590693958511" duration="23000" />
+      <workItem from="1590756470594" duration="22000" />
+      <workItem from="1590934991461" duration="23000" />
+      <workItem from="1590945821626" duration="7000" />
+      <workItem from="1590947937829" duration="145000" />
+      <workItem from="1590954025805" duration="3000" />
+      <workItem from="1591285024274" duration="576000" />
+      <workItem from="1591286136755" duration="3000" />
+      <workItem from="1591289877626" duration="2000" />
+      <workItem from="1591792376401" duration="7875000" />
+      <workItem from="1591968108792" duration="1022000" />
+      <workItem from="1591969290015" duration="3647000" />
+      <workItem from="1592229947555" duration="2385000" />
+      <workItem from="1592316976743" duration="4192000" />
+      <workItem from="1592402175847" duration="491000" />
+      <workItem from="1592445656211" duration="4160000" />
+      <workItem from="1592484736772" duration="3396000" />
+      <workItem from="1592497884234" duration="5988000" />
+      <workItem from="1592515113087" duration="8740000" />
+      <workItem from="1592562328073" duration="13588000" />
     </task>
     <task id="LOCAL-00001" summary="CK Editor eklendi">
       <created>1585952417769</created>
@@ -267,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589475028200</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="login vb.,üye paneli,sepete ekleme">
+      <created>1590415328389</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590415328389</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,36 +318,41 @@
     <MESSAGE value="hakkımızda vs. ve iletişim formu eklendi." />
     <MESSAGE value="slider,kategori ürünler,anasayfa ürünler gösterildi." />
     <MESSAGE value="detay, yorum, arama kısımları eklendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="detay, yorum, arama kısımları eklendi." />
+    <MESSAGE value="login vb.,üye paneli,sepete ekleme" />
+    <option name="LAST_COMMIT_MESSAGE" value="login vb.,üye paneli,sepete ekleme" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="73" key="#Notifications" timestamp="1591794399347">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="73" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1591794399347" />
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585330445282">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585330445282" />
-    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1589475027100">
+    <state x="393" y="6" key="CommitChangelistDialog2" timestamp="1590415327386">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589475027100" />
+    <state x="393" y="6" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590415327386" />
     <state x="549" y="166" key="FileChooserDialogImpl" timestamp="1588550205140">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588550205140" />
-    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1589569758610">
+    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1592230476047">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1589569758610" />
+    <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1592230476047" />
     <state x="447" y="62" key="SettingsEditor" timestamp="1590059759268">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="447" y="62" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1590059759268" />
-    <state x="380" y="193" key="Vcs.Push.Dialog.v2" timestamp="1589475034978">
+    <state x="380" y="193" key="Vcs.Push.Dialog.v2" timestamp="1590415335491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="380" y="193" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589475034978" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1590411917751">
+    <state x="380" y="193" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590415335491" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1592579603102">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1590411917751" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1592579603102" />
   </component>
 </project>

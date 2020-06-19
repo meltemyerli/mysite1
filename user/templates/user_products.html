@@ -1,0 +1,110 @@
+{% extends "homebase.html" %}
+
+{% block title %}{{ profile.user_name }} Ürünlerim{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}'>
+{% endblock %}
+
+{% block body %}
+    {% load static %}
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <a href="#"><i class="fa fa-home"></i>Anasayfa</a>
+                        <span>Kullanıcı Ürünleri</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="contact-form">
+                        <div class="leave-comment">
+                            {% include "user_panel.html" %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="contact-form">
+                        <div class="leave-comment">
+                            <h4>Ürünlerim</h4>
+                            <hr>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div style="color:mediumseagreen;font-size: medium">
+                                        {{ message|safe }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <div class="specification-table">
+
+                                {% if products %}
+
+                                    <table>
+
+                                        <tr>
+                                            <td class="p-catagory">RESİM </td>
+                                            <td class="p-catagory">İSİM </td>
+                                            <td class="p-catagory">CATEGORY </td>
+                                            <td class="p-catagory">GALERİ </td>
+                                            <td class="p-catagory">FİYAT </td>
+                                            <td class="p-catagory"></td>
+
+
+                                        </tr>
+
+                                        {% for rs in products %}
+                                            <tr>
+
+                                                <td>
+                                                    <img height="60" src="{{ rs.image.url }}">
+                                                </td>
+
+                                                <td>
+                                                    <a href="/product/{{ rs.id }}/{{ rs.slug }}">
+                                                        <b>{{ rs.title }}</b></a>
+                                                </td>
+                                                <td>
+                                                    {{ rs.category.title }}
+                                                </td>
+                                                <td>
+                                                    <a href="javascript:window.open('/product/gallery/{{ rs.id }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,scrollBars=yes,resizeable=no,width=1200,height=800');">
+                                                        <img src="{% static  'img/gallery.png' %}" height="50" title="Resim Galerisi"></a>
+                                                </td>
+                                                <td>
+                                                    {{ rs.price }}
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-success" href="/user/productedit/{{ rs.id }}"
+                                                    >DÜZENLE</a>
+                                                    <a class="btn btn-danger" href="/user/productdelete/{{ rs.id }}"
+                                                       onclick="return confirm('Silinecek! Emin misiniz?')">SİL</a>
+                                                </td>
+
+                                            </tr>
+                                        {% endfor %}
+
+                                    </table>
+                                {% else %}
+                                    Henüz ürün eklemediniz.. <br><br>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <br>
+                        <a class="primary-btn" href="/user/addproduct" >Ürün Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
